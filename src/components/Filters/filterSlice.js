@@ -12,6 +12,16 @@ const filterReducer = (state = initState, action) => {
         ...state,
         search: action.payload
       }
+    case ACTION.FILTER_STATUS:
+      return {
+        ...state,
+        status: action.payload
+      }
+    case ACTION.FILTER_PRIORITY:
+      return {
+        ...state,
+        priority: action.payload
+      }
     default: return state;
   }
 };

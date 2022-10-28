@@ -7,7 +7,6 @@ import { useState } from 'react';
 import { todoRemain } from '../redux/selectors';
 export default function TodoList() {
   const todolist = useSelector(todoRemain) || [];
-  console.log(todolist);
   const dispatch = useDispatch();
   const id = nanoid();
   const [todo, setTodo] = useState('');
@@ -25,7 +24,7 @@ export default function TodoList() {
       <Col span={24} style={{ height: 'calc(100% - 40px)', overflowY: 'auto' }}>
         {todolist.map(todo => {
           return (
-            <Todo key={todo.id} name={todo.name} priority={todo.priority} />
+            <Todo key={todo.id} id={todo.id} name={todo.name} priority={todo.priority} isCompleted={todo.isCompleted} />
           )
         })}
       </Col>
